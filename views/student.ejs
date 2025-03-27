@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Student</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #243749, #c8daec);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #333;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .form-container {
+            margin: 40px auto;
+            max-width: 700px;
+            padding: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-control {
+            border-radius: 0;
+            border: 1px solid #ddd;
+            background: white;
+            color: #333;
+        }
+
+        .form-control:focus {
+            border-color: #2C3E50;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: #2C3E50;
+            border-color: #2C3E50;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #34495E;
+            border-color: #34495E;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Student Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/htmlDemo">Html Demo</a></li>
+                <li class="nav-item"><a class="nav-link" href="/students/add">Add Student</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tas">Teaching Assistants</a></li>
+                <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Update Student Form -->
+    <div class="form-container">
+        <h2><%= student.firstName %> <%= student.lastName %> - Student: <%= student.studentNum %></h2>
+        <form method="post" action="/student/update">
+            <input type="hidden" name="studentNum" value="<%= student.studentNum %>" />
+
+            <div class="form-group">
+                <label>First Name:</label>
+                <input class="form-control" name="firstName" type="text" value="<%= student.firstName %>" required />
+            </div>
+
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input class="form-control" name="lastName" type="text" value="<%= student.lastName %>" required />
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input class="form-control" name="email" type="email" value="<%= student.email %>" required />
+            </div>
+
+            <div class="form-group">
+                <label>Course:</label>
+                <input class="form-control" name="course" type="text" value="<%= student.course %>" required />
+            </div>
+
+            <div class="form-group">
+                <label>TA:</label>
+                <input type="checkbox" name="TA" <%= student.TA ? "checked" : "" %> />
+            </div>
+
+            <div class="form-group">
+                <label>Status:</label><br>
+                <input type="radio" name="status" value="Full Time" <%= student.status === "Full Time" ? "checked" : "" %>> Full Time
+                <input type="radio" name="status" value="Part Time" <%= student.status === "Part Time" ? "checked" : "" %>> Part Time
+            </div>
+
+            <div class="form-group">
+                <label>Address (Street):</label>
+                <input class="form-control" name="addressStreet" type="text" value="<%= student.addressStreet || '' %>" />
+            </div>
+
+            <div class="form-group">
+                <label>Address (City):</label>
+                <input class="form-control" name="addressCity" type="text" value="<%= student.addressCity || '' %>" />
+            </div>
+
+            <div class="form-group">
+                <label>Address (Province):</label>
+                <input class="form-control" name="addressProvince" type="text" value="<%= student.addressProvince || '' %>" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Student</button>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

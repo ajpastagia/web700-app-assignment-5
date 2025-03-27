@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEB700 - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #2C3E50, #ebe4f5);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #2C3E50;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .nav-link:hover {
+            color: #f39c12 !important;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1, h2 {
+            color: #2C3E50;
+        }
+
+        p, li, a {
+            color: #555;
+        }
+
+        a:hover {
+            color: #e67e22;
+        }
+
+        .link-list li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">WEB700</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/htmlDemo">HTML Demo</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tas">Teaching Assistants</a></li>
+                <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction Card -->
+        <div class="card">
+            <h1>Welcome to My Website</h1>
+            <p>I will be demonstrating HTML5 principles and techniques, as well as routing in Express.</p>
+        </div>
+
+        <!-- Website Description Card -->
+        <div class="card">
+            <h2>Introduction to This Website</h2>
+            <p>This site consists of 3 static views (Home, About, HTML Demo) as well as 5 routes that supply data. These include:</p>
+            <ul class="link-list">
+				<li><a href="/students">All Students</a></li>
+				<li><a href="/studentsByCourse?courseCode=5">Students by Course (WEB700)</a></li>
+				<li><a href="/studentByNum?studentNum=1">A Single Student by Student Number (1)</a></li>
+                <li><a href="/tas">All Teaching Assistants</a></li>
+                <li><a href="/courses">All Courses</a></li>
+            </ul>
+            <p>Explore the site using the links above to interact with the data or navigate to the other pages.</p>
+        </div>
+
+        <!-- HTML5 Description Card -->
+        <div class="card">
+            <h2>Introduction to HTML5</h2>
+            <p>This site utilizes HTML5, a markup language used for structuring and presenting content on the World Wide Web. 
+            HTML5 includes many new features like multimedia support, semantic elements, and improved APIs for better web functionality.</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

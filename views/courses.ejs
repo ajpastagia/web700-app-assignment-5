@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Courses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #263a4e, #f9f5ff);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .table th {
+            background-color: #2C3E50;
+            color: white;
+        }
+
+        h1 {
+            color: #2C3E50;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>All Courses</h1>
+
+            <% if (courses && courses.length > 0) { %>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover mt-4">
+                        <thead>
+                            <tr>
+                                <th>Course ID</th>
+                                <th>Course Code</th>
+                                <th>Course Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% courses.forEach(course => { %>
+                                <tr>
+                                    <td><%= course.courseId %></td>
+                                    <td><%= course.courseCode %></td>
+                                    <td><%= course.courseDescription %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } else { %>
+                <div class="alert alert-warning" role="alert">
+                    <%= message || "No courses available." %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
